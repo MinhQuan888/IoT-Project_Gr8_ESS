@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ESP32 Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="sidebar" id="sidebar">
+  <div class="logo">
+    <span>📡</span>
+    <h2 data-lang="en">ESP32 Dashboard</h2>
+    <h2 data-lang="vi" style="display:none;">Bảng Điều Khiển ESP32</h2>
+  </div>
+  <nav>
+    <a href="#" data-section="home" class="active" data-lang="en">Home</a>
+    <a href="#" data-section="settings" data-lang="en">Settings</a>
+    <a href="#" data-section="logs" data-lang="en">Logs</a>
+    <a href="#" data-section="about" data-lang="en">About</a>
+    <a href="#" data-section="home" data-lang="vi" style="display:none;">Trang Chủ</a>
+    <a href="#" data-section="settings" data-lang="vi" style="display:none;">Cài Đặt</a>
+    <a href="#" data-section="logs" data-lang="vi" style="display:none;">Nhật Ký</a>
+    <a href="#" data-section="about" data-lang="vi" style="display:none;">Thông Tin</a>
+  </nav>
+  <div class="language-toggle">
+    <button id="enBtn" class="active">EN</button>
+    <button id="viBtn">VI</button>
+  </div>
+</div>
+
+<div class="main" id="mainContent">
+  <!-- Home -->
+  <div class="section" id="homeSection">
+    <div class="card-container">
+      <div class="card" id="voltageCard">
+        <h3 data-lang="en">Voltage</h3>
+        <h3 data-lang="vi" style="display:none;">Áp Pin</h3>
+        <h2 id="voltage">-- V</h2>
+      </div>
+      <div class="card" id="currentCard">
+        <h3 data-lang="en">Current</h3>
+        <h3 data-lang="vi" style="display:none;">Dòng Điện</h3>
+        <h2 id="current">-- A</h2>
+      </div>
+    </div>
+    <canvas id="currentChart"></canvas>
+    <canvas id="voltageChart"></canvas>
+    <!-- Toggle Load -->
+    <div class="load-toggle-btn">
+      <button id="loadToggleBtn" data-lang="en">LOAD ON</button>
+      <button id="loadToggleBtn" data-lang="vi" style="display:none;">BẬT TẢI</button>
+    </div>
+  </div>
+
+  <!-- Settings -->
+<div class="section" id="settingsSection" style="display:none;">
+  <h2 data-lang="en">Settings</h2>
+  <h2 data-lang="vi" style="display:none;">Cài Đặt</h2>
+  
+  <div class="settings-container">
+    <div class="settings-card">
+      <label data-lang="en">Current Threshold</label>
+      <label data-lang="vi" style="display:none;">Ngưỡng Dòng</label>
+      <input type="number" id="currentThreshold" value="5">
+    </div>
+    
+    <div class="settings-card">
+      <label data-lang="en">Voltage Min</label>
+      <label data-lang="vi" style="display:none;">Áp Thấp Nhất</label>
+      <input type="number" id="voltageMin" value="11">
+    </div>
+
+    <div class="settings-card">
+       <label data-lang="en">Voltage Max</label>
+       <label data-lang="vi" style="display:none;">Áp Cao Nhất</label>
+       <input type="number" id="voltageMax" value="13">
+    </div>
+  </div>
+
+  <!-- scripNút OK ở đây -->
+  <div class="settings-actions">
+    <button id="saveSettingsBtn">OK</button>
+  </div>
+</div>
+  <!-- Logs -->
+  <div class="section" id="logsSection" style="display:none;">
+    <table id="logsTable">
+      <thead>
+        <tr>
+          <th data-lang="en">Time</th>
+          <th data-lang="vi" style="display:none;">Thời Gian</th>
+          <th data-lang="en">Current</th>
+          <th data-lang="vi" style="display:none;">Dòng Điện</th>
+          <th data-lang="en">Voltage</th>
+          <th data-lang="vi" style="display:none;">Áp Pin</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- About -->
+  <div class="section" id="aboutSection" style="display:none;">
+    <h2 data-lang="en">About</h2>
+    <h2 data-lang="vi" style="display:none;">Thông Tin</h2>
+    <p data-lang="en">ESP32 IoT Dashboard v1.0. Built with Node.js, WebSocket, Chart.js, HTML/CSS/JS.</p>
+    <p data-lang="vi" style="display:none;">Bảng Điều Khiển IoT ESP32 v1.0. Xây dựng bằng Node.js, WebSocket, Chart.js, HTML/CSS/JS.</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
